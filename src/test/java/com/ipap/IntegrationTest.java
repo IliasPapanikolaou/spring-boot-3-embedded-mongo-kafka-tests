@@ -139,7 +139,7 @@ public class IntegrationTest {
     @Test
     @Order(5)
     public void EndToEndIntegrationTest() {
-        EmployeeDto employeeDto = new EmployeeDto("John", "Rambo", "john.rambo@mail.com");
+        EmployeeDto employeeDto = new EmployeeDto("Chuck", "Norris", "chuck.norris@mail.com");
         EmployeeDto response = restTemplate.postForObject(baseUrl.concat("/save"), employeeDto, EmployeeDto.class);
 
         assertNotNull(response);
@@ -153,6 +153,4 @@ public class IntegrationTest {
                     .extracting(Employee::getId).containsOnly(optionalEmployee.get().getId());
         });
     }
-
-
 }
